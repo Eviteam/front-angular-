@@ -1,0 +1,44 @@
+@import "../../../assets/variables.scss";
+
+.title_part {
+  margin-top: 45px;
+  cursor: pointer;
+
+  .title{
+    font-size: 25px;
+    line-height: 30px;
+  }
+
+  .msg_arrow{
+    width: 16px;
+    height: 10px;
+    margin-right: 10px;
+    margin-left: 30px;
+  }
+
+}
+
+.user_part {
+  cursor: pointer;
+  padding: 7px 30px;
+
+  .single_user {
+    // margin-left: 28px;
+
+    .user_icon {
+      width: 25px;
+      height: 25px;
+      margin-right: 17px;
+    }
+
+    .user_name {
+      font-size: 20px;
+      line-height: 23px;
+      margin-top: 15px;
+    }
+  }
+
+  .single_user:hover {
+    background-color: $hover-background-color;
+  }
+}
