@@ -9,6 +9,7 @@ import { UsersComponent } from './users/users.component';
 import { ChatHistoryComponent } from './chat-history/chat-history.component';
 import { HeaderComponent } from './header/header.component';
 import { SendMessageComponent } from './send-message/send-message.component';
+import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 
 const routes: Routes = [
   {
@@ -30,7 +31,8 @@ const routes: Routes = [
   ],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    CKEditorModule
   ],
   exports: [RouterModule]
 })

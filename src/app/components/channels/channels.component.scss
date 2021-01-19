@@ -8,7 +8,6 @@
   background-color: $side-menu-header-background;
   border-radius: 0px 13px 0px 0px;
   box-shadow: 0px 7px 7px rgba(176, 218, 229, 0.13);
-  // opacity: 0.3;
   .sidebar_info {
     margin-left: 30px;
     .active_status {
@@ -49,7 +48,6 @@
 
 .channels_part {
   margin-top: 22px;
-  margin-left: 30px;
   cursor: pointer;
 
   .title {
@@ -60,49 +58,40 @@
     width: 16px;
     height: 10px;
     margin-right: 10px;
+    margin-left: 30px;
   }
 
   .channels {
+    padding: 7px 30px;
     margin-top: 15px;
     line-height: 16px;
     height: 23px;
     cursor: pointer;
 
-    .public_channel {
-      width: 17px;
-      height: 13px;
-      margin-right: 23px;
-    }
-  
-    .private_channel {
-      width: 13px;
-      height: 16px;
-      margin-right: 23px;
+    &__icon {
+      width: 18px;
+      height: auto;
+      object-fit: contain;
+      margin-right: 24px;
+      &_add {
+        height: 110%;
+      }
     }
     
-    .channel_name {
+    &__name {
       margin-top: 10px;
       font-size: 20px;
       line-height: 23px;
+      &_add {
+        font-size: 16px;
+      }
     }
   }
 
-  .add_channel {
-    cursor: pointer;
-    height: 19px;
-    margin-top: 18px;
-
-    .add_icon {
-      width: 10px;
-      height: 10px;
-      margin-right: 25px;
-    }
-
-    .add_button {
-      margin-top: 12px;
-      font-size: 16px;
-      line-height: 19px;
-    }
+  .channels:hover {
+    background-color: $channel-hover-background;
   }
+
+ 
 
 }
