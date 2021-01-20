@@ -52,6 +52,8 @@
       font-size: 20px;
       line-height: 23px;
       margin-top: 15px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
     }
   }
 

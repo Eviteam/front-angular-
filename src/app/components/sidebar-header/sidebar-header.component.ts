@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from 'src/app/models/user';
+import { LocalStorageService } from 'src/app/services/localStorage/local-storage.service';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-sidebar-header',
@@ -8,10 +11,20 @@ import { Component, OnInit } from '@angular/core';
 export class SidebarHeaderComponent implements OnInit {
 
   public hideInfo: boolean = false;
+  public user_id: string = this.storageService.getItem('user_id');
+  public singleUser: User;
 
-  constructor() { }
+  constructor(
+    private userService: UserService,
+    private storageService: LocalStorageService
+  ) { }
 
   ngOnInit(): void {
+    this.userService.getSingleUser(this.user_id)
+      .subscribe((data: User) => {
+        console.log(data);
+        this.singleUser = data
+      })
   }
 
   public hideOrShowContent() {

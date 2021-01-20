@@ -1,7 +1,7 @@
 <div class="sidebar_header">
   <div class="sidebar_info d-flex align-items-center" (click)="hideOrShowContent()">
     <div class="active_status"></div>
-    <h4 class="current_user">Marine Galstyan</h4>
+    <h4 class="current_user">{{singleUser?.firstname}} {{singleUser?.lastname}}</h4>
     <img src="../../../assets/icons/chevron_down.svg" class="arrow" [ngClass]="hideInfo ? 'msg_arrow_rotate' : ''">
   </div>
 </div>
