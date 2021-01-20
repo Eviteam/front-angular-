@@ -18,6 +18,9 @@
     box-shadow: inset 4px 4px 4px 4px rgba(217, 233, 238, 0.2);
     border-radius: 7px;
     background-color: $header-input-background;
-    border: unset
+    border: unset;
+    background-image: url('../../../assets/icons/search_icon.svg');
+    background-repeat: no-repeat;
+    background-position: 97% 50%;
   }
 }

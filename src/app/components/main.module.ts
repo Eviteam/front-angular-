@@ -10,6 +10,7 @@ import { ChatHistoryComponent } from './chat-history/chat-history.component';
 import { HeaderComponent } from './header/header.component';
 import { SendMessageComponent } from './send-message/send-message.component';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
+import { SidebarHeaderComponent } from './sidebar-header/sidebar-header.component';
 
 const routes: Routes = [
   {
@@ -27,7 +28,8 @@ const routes: Routes = [
     UsersComponent,
     HeaderComponent,
     ChatHistoryComponent,
-    SendMessageComponent
+    SendMessageComponent,
+    SidebarHeaderComponent
   ],
   imports: [
     CommonModule,

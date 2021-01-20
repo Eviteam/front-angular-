@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChannelsComponent implements OnInit {
 
+  public hideChannels: boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  public hideOrShowContent() {
+    this.hideChannels = !this.hideChannels
   }
 
 }

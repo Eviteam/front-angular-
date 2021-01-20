@@ -25,11 +25,27 @@
     padding: 7px 30px;
     height: 40px;
 
-    .user_icon {
-      width: 25px;
-      height: 25px;
-      margin-right: 17px;
+    .user_image_block{
+      position: relative;
+
+      .user_icon {
+        width: 25px;
+        height: 25px;
+        margin-right: 17px;
+      }
+
+      .active_status {
+        width: 9px;
+        height: 9px;
+        border-radius: 50%;
+        background-color: $color-active-status;
+        margin-right: 9px;
+        position: absolute;
+        right: 9px;
+        bottom: -1px;
+      }
     }
+
 
     .user_name {
       font-family: 'Proxima';

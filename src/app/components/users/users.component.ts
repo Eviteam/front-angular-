@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UsersComponent implements OnInit {
 
+  public hideUsers: boolean = false;
+
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  public hideOrShowContent() {
+    this.hideUsers = !this.hideUsers
   }
 
 }
