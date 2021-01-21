@@ -6,6 +6,7 @@
   margin: 30px 16px 30px 30px;
   .msg_info {
     height: 26px;
+    position: relative;
 
     .sender {
       font-family: 'Proxima';
@@ -20,6 +21,13 @@
       font-weight: normal;
       line-height: 17px;
       cursor: pointer;
+    }
+
+    .popover {
+      width: 175px;
+      height: 46px;
+      background-color: $selected-user-background;
+      position: absolute;
     }
   }
 

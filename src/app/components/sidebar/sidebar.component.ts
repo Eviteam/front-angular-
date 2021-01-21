@@ -23,7 +23,6 @@ export class SidebarComponent implements OnInit {
     this.sidebarService.getTeamData(this.user_id, this.team_id)
       .subscribe(async (data: TeamData) => {
         this.team = data;
-        console.log(this.team)
       })
   }
 

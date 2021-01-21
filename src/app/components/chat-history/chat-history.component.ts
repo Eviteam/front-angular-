@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Message } from 'src/app/models/message';
+import { MessageService } from 'src/app/services/message/message.service';
 
 @Component({
   selector: 'app-chat-history',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChatHistoryComponent implements OnInit {
 
-  constructor() { }
+  public allMessages: Message
+
+  constructor(private messageService: MessageService) { }
 
   ngOnInit(): void {
+    this.messageService.setMessageProps().then(data => this.getAllMessage(data));
+  }
+
+  public getAllMessage(messageBody: Message): void {
+    this.messageService.getMessageHistory(messageBody)
+      .subscribe((data: Message) => {
+        this.allMessages = data;
+        console.log(this.allMessages)
+      })
   }
 
 }

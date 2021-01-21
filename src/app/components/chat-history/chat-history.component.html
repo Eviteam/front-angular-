@@ -1,10 +1,11 @@
-<div class="sender_message">
+<div class="sender_message" *ngFor="let message of allMessages">
     <div class="d-flex align-items-center msg_info">
-        <p class="sender">Armen Grigoryan</p>
-        <span class="time">13:10</span>
+        <p class="sender">{{message?.sender[0].firstname}} {{message?.sender[0].lastname}}</p>
+        <span class="time">{{message?.createdAt | date:'shortTime'}}</span>
+        <!-- <div class="popover"></div> -->
     </div>
     <div class="d-flex align-items-center message_content">
         <img src="../../../assets/icons/user_icon.svg" class="sender_image">
-        <p class="message">test</p>
+        <div class="message d-flex" [innerHtml]="message?.message"></div>
     </div>
 </div>

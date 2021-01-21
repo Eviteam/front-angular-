@@ -60,4 +60,8 @@
   .single_user:hover {
     background-color: $hover-background-color;
   }
+
+  .selectedUser {
+    background-color: $selected-user-background;
+  }
 }

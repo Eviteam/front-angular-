@@ -22,7 +22,6 @@ export class SidebarHeaderComponent implements OnInit {
   ngOnInit(): void {
     this.userService.getSingleUser(this.user_id)
       .subscribe((data: User) => {
-        console.log(data);
         this.singleUser = data
       })
   }

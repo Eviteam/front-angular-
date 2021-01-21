@@ -14,6 +14,10 @@ export class UsersComponent implements OnInit {
   public hideUsers: boolean = false;
   public user_id: string = this.storageService.getItem('user_id');
   public users: User[];
+  public userIsSelected: boolean = false;
+  public selectedUser: number = this.storageService.getItem('selectedUser') 
+    ? Number(this.storageService.getItem('selectedUser'))
+    : null;
 
   constructor(
     private userService: UserService,
@@ -21,6 +25,7 @@ export class UsersComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.selectUser(Number(this.selectedUser));
     this.userService.getAllUsers(this.user_id)
       .subscribe((data: Team) => {
         this.users = data.team.users
@@ -29,6 +34,12 @@ export class UsersComponent implements OnInit {
 
   public hideOrShowContent() {
     this.hideUsers = !this.hideUsers
+  }
+
+  public selectUser(user_id: number) {
+    this.userIsSelected = true;
+    this.selectedUser = user_id;
+    this.storageService.setItem('selectedUser', user_id);
   }
 
 }
