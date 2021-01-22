@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Team } from 'src/app/models/team';
 import { User } from 'src/app/models/user';
 import { LocalStorageService } from 'src/app/services/localStorage/local-storage.service';
@@ -15,13 +16,14 @@ export class UsersComponent implements OnInit {
   public user_id: string = this.storageService.getItem('user_id');
   public users: User[];
   public userIsSelected: boolean = false;
-  public selectedUser: number = this.storageService.getItem('selectedUser') 
+  public selectedUser: number = this.storageService.getItem('selectedUser')
     ? Number(this.storageService.getItem('selectedUser'))
     : null;
 
   constructor(
     private userService: UserService,
-    private storageService: LocalStorageService
+    private storageService: LocalStorageService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -40,6 +42,7 @@ export class UsersComponent implements OnInit {
     this.userIsSelected = true;
     this.selectedUser = user_id;
     this.storageService.setItem('selectedUser', user_id);
+    this.router.navigateByUrl(`/main/${user_id}`)
   }
 
 }

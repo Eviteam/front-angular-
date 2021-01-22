@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { User } from 'src/app/models/user';
 import { LocalStorageService } from 'src/app/services/localStorage/local-storage.service';
 import { UserService } from 'src/app/services/user/user.service';
@@ -15,11 +16,13 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private storageService: LocalStorageService
+    private storageService: LocalStorageService,
+    private activatedRoute: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
-    this.getSingleUser(this.selectedUser)
+    this.activatedRoute.params
+        .subscribe(param => this.getSingleUser(param.id))
   }
 
   public getSingleUser(user_id: string): void {

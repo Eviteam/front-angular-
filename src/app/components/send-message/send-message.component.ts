@@ -34,9 +34,10 @@ export class SendMessageComponent implements OnInit {
         console.log(this.messageBody, 'messageBody')
         this.messageService.saveMessage(this.messageBody)
           .subscribe((message: Message) => {
+            this.message = '';
             this.messageService.sendMessage(message['data']);
             this.messageService.getMessage()
-              .subscribe(msg => console.log(msg, "msg"))
+              .subscribe(msg => console.log(this.messageService.allMessages, "1"))
             console.log(message, "121121")
           })
       }

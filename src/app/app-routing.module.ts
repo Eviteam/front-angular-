@@ -5,8 +5,18 @@ import { MainComponent } from './components/main.component';
 const routes: Routes = [
   {
     path: '',
-    pathMatch: 'full',
-    component: MainComponent
+    redirectTo: '/main',
+    pathMatch: 'full'
+  },
+  {
+    path: 'main',
+    component: MainComponent,
+    children: [
+      {
+        path: ':id',
+        loadChildren: () => import('./components/message/message.module').then(m => m.MessageModule)
+      }
+    ]
   }
 ];
 

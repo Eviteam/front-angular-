@@ -14,7 +14,8 @@ export class MessageService {
   public messageBody: Message = new Message();
   public user_id: string = this.storageService.getItem('user_id');
   public team_id: string = this.storageService.getItem('team_id');
-  public selectedUser: string = this.storageService.getItem('selectedUser');
+  public selectedUser: string;
+  public allMessages: Message;
 
   constructor(
     private apiService: ApiService,
@@ -42,6 +43,7 @@ export class MessageService {
 
   public setMessageProps(): Promise<Message> {
     return new Promise((resolve, reject) => {
+      this.selectedUser = this.storageService.getItem('selectedUser');
       this.messageBody.sender = Number(this.user_id);
       this.messageBody.receiver_id = this.selectedUser;
       this.messageBody.team_id = this.team_id;

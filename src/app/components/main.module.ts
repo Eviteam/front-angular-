@@ -3,12 +3,12 @@ import { CommonModule } from '@angular/common';
 import { MainComponent } from './main.component';
 import { RouterModule, Routes } from '@angular/router';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { MessageComponent } from './message/message.component';
+// import { MessageComponent } from './message/message.component';
 import { ChannelsComponent } from './channels/channels.component';
 import { UsersComponent } from './users/users.component';
-import { ChatHistoryComponent } from './chat-history/chat-history.component';
-import { HeaderComponent } from './header/header.component';
-import { SendMessageComponent } from './send-message/send-message.component';
+// import { ChatHistoryComponent } from './chat-history/chat-history.component';
+// import { HeaderComponent } from './header/header.component';
+// import { SendMessageComponent } from './send-message/send-message.component';
 import { CKEditorModule } from '@ckeditor/ckeditor5-angular';
 import { SidebarHeaderComponent } from './sidebar-header/sidebar-header.component';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
@@ -31,12 +31,12 @@ const config: SocketIoConfig = { url: BASE_URL, options: {} };
   declarations: [
     MainComponent,
     SidebarComponent,
-    MessageComponent,
+    // MessageComponent,
     ChannelsComponent,
     UsersComponent,
-    HeaderComponent,
-    ChatHistoryComponent,
-    SendMessageComponent,
+    // HeaderComponent,
+    // ChatHistoryComponent,
+    // SendMessageComponent,
     SidebarHeaderComponent
   ],
   imports: [
