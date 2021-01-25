@@ -16,9 +16,8 @@ export class UsersComponent implements OnInit {
   public user_id: string = this.storageService.getItem('user_id');
   public users: User[];
   public userIsSelected: boolean = false;
-  public selectedUser: number
-  = Number(this.storageService.getItem('selectedUser'))
-    ? Number(this.storageService.getItem('selectedUser'))
+  public selectedUser: string = this.storageService.getItem('selectedUser')
+    ? this.storageService.getItem('selectedUser')
     : null;
 
   constructor(
@@ -29,25 +28,34 @@ export class UsersComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // this.activatedRoute.params
-    //   .subscribe(param => {
-        this.selectUser(this.selectedUser);
-        this.userService.getAllUsers(this.user_id)
+    this.activatedRoute.queryParams
+      .subscribe(param => {
+        if (param.user_id) {
+          this.userService.getAllUsers(param.user_id)
+            .subscribe((data: Team) => {
+              this.users = data.team.users;
+              this.selectUser(param.user_id)
+            })
+        } else {
+          const user_id = this.storageService.getItem('selectedUser');
+          this.userService.getAllUsers(user_id)
           .subscribe((data: Team) => {
-            this.users = data.team.users
+            this.users = data.team.users;
+            this.selectUser(user_id)
           })
-      // })
+        }
+      })
   }
 
   public hideOrShowContent() {
     this.hideUsers = !this.hideUsers
   }
 
-  public selectUser(user_id: number) {
+  public selectUser(user_id: string) {
     this.userIsSelected = true;
     this.selectedUser = user_id;
-    this.storageService.setItem('selectedUser', user_id);
-    this.router.navigateByUrl(`/main/${user_id}`)
+    this.storageService.setItem('selectedUser', this.selectedUser);
+    this.router.navigateByUrl(`/main/${this.selectedUser}`)
   }
 
 }

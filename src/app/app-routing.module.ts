@@ -3,11 +3,11 @@ import { Routes, RouterModule } from '@angular/router';
 import { MainComponent } from './components/main.component';
 
 const routes: Routes = [
-  {
-    path: '',
-    redirectTo: '/main',
-    pathMatch: 'full'
-  },
+  // {
+  //   path: '',
+  //   redirectTo: '/main',
+  //   pathMatch: 'full'
+  // },
   {
     path: 'main',
     component: MainComponent,
