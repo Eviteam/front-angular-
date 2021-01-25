@@ -14,7 +14,7 @@ const routes: Routes = [
     children: [
       {
         path: ':id',
-        loadChildren: () => import('./components/message/message.module').then(m => m.MessageModule)
+        loadChildren: () => import('./views/message/message.module').then(m => m.MessageModule)
       }
     ]
   }

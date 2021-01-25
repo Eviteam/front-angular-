@@ -10,8 +10,6 @@ import { UserService } from 'src/app/services/user/user.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-
-  public selectedUser: string = this.storageService.getItem('selectedUser');
   public userData: User;
 
   constructor(
